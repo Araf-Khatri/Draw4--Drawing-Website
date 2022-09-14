@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <title>Draw4</title>
+  </head>
+  <body>
+    <div class="flexMain">
+      <div class="options-cont">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="tools-cont scale-tools">
+        <img class="pencil" src="./Icons/Pencil.svg" alt=""/>
+        <img class="eraser" src="./Icons/Eraser.svg" alt="" />
+        <img class="download" src="./Icons/Download.svg" alt="" />
+        <img class="upload" src="./Icons/Upload.svg" alt="" />
+        <img class="sticky" src="./Icons/StickyNote.svg" alt="" />
+        <img class="undo" src="./Icons/Undo.svg" alt="" />
+        <img class="redo" src="./Icons/Redo.svg" alt="" />
+      </div>
+    </div>
+
+    <div class="pencil-tool-cont">
+
+      <div class="pencil-color-cont">
+        <div data-color="#222" class="black #222 pencil-color"></div>
+        <div data-color="#1982c4" class="blue pencil-color"></div>
+        <div data-color="#ff595e" class="red pencil-color"></div>
+        <div data-color="#ffca3a" class="yellow pencil-color"></div>
+      </div>
+      <div class="pencil-width-cont">
+        <input type="range" min="1" max="150" value="30" class="pencil-width" />
+      </div>
+    </div>
+    <div class="eraser-tool-cont">
+      <input type="range" min="1" max="250" value="30" class="eraser-width" />
+    </div>
+
+    <!-- <div class="sticky-cont">
+      <div class="header-cont">
+        <div class="minimize"></div>
+        <div class="remove"></div>
+      </div>
+      <div class="note-cont">
+        <textarea></textarea>
+      </div>
+    </div> -->
+
+    <canvas></canvas>
+
+    <script
+      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const socket = io.connect('http://localhost:5000');
+    </script>
+    <script src="./tools.js"></script>
+    <script src="./canvas.js"></script>
+  </body>
+</html>
