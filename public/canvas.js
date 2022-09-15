@@ -5,6 +5,7 @@ canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
 const pencilColor = document.querySelectorAll('.pencil-color');
+const pencilColorCont = document.querySelector('.pencil-color-cont');
 const pencilWidthElem = document.querySelector('.pencil-width');
 const eraserWidthElem = document.querySelector('.eraser-width');
 const download = document.querySelector('.download');
@@ -134,13 +135,16 @@ function drawStroke(strokeObj) {
   tool.stroke();
 }
 
-pencilColor.forEach((colorElem) => {
-  colorElem.addEventListener('click', (e) => {
-    const color = colorElem.dataset.color;
-    penColor = color;
-    tool.strokeStyle = penColor;
-  });
-});
+pencilColorCont.addEventListener('click', (e) => {
+  if (e.target.classList[0] === 'pencil-color-cont') {
+    return
+  }
+  const color = e.target.dataset.color;
+  penColor = color;
+  tool.strokeStyle = penColor;
+  console.log(color);
+})
+
 
 pencilWidthElem.addEventListener('change', (e) => {
   penWidth = Math.floor(+pencilWidthElem.value / 10);
